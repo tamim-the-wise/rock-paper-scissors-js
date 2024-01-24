@@ -1,14 +1,10 @@
-// Declare a FUNCTION getComputerChoice to get computer's choice
-function getComputerChoice() {
-// Declare array choices containing all possible choices
-	const choices = ["Rock", "Paper", "Scissors"]
-
-// Declare index VARIABLE
-// Gnerate a random number from 0 to 1 multiplied by the length of choices array. Round the number and store in index VARIABLE
-	let index = Math.floor(Math.random() * choices.length)
+ function getComputerChoice() {
+	const computerChoices = ["Rock", "Paper", "Scissors"]
 	
-// RETURN value of randomly generated index from choices array
-	return choices[index]
+	let randomIndex = Math.floor(Math.random() * choices.length)
+	let randomChoice = computerChoices[randomIndex]
+
+	return randomChoice
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -52,7 +48,7 @@ function game() {
 	for (let i = 1; i <= 5; i++) {
 		let playerSelection = prompt()
 		let computerSelection = getComputerChoice()
-		roundResult = playRound(playerSelection, computerSelection)
+		let roundResult = playRound(playerSelection, computerSelection)
 		
 		console.log(roundResult)
 
