@@ -34,15 +34,17 @@ function playRound(playerSelection, computerSelection) {
 		result = "Tie";
 	}
 	else {
-		result = "Wrong input"
+		result = "Wrong input";
 	}
 
 	return result;
 }
 
 btns = document.querySelectorAll("button");
+rsltElement = document.querySelector("#result");
 btns.forEach(btn => {
 	btn.addEventListener('click', () => {
-		console.log(playRound(btn.textContent, getComputerChoice()));
+		let gameResult = playRound(btn.textContent, getComputerChoice());
+		rsltElement.textContent = gameResult;
 	});
 });
