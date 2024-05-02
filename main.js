@@ -1,74 +1,48 @@
  function getComputerChoice() {
-	const computerChoices = ["Rock", "Paper", "Scissors"]
+	const computerChoices = ["Rock", "Paper", "Scissors"];
 	
-	let randomIndex = Math.floor(Math.random() * computerChoices.length)
-	let randomChoice = computerChoices[randomIndex]
+	let randomIndex = Math.floor(Math.random() * computerChoices.length);
+	let randomChoice = computerChoices[randomIndex];
 
-	return randomChoice
+	return randomChoice;
 }
 
 function playRound(playerSelection, computerSelection) {
-	playerSelection = playerSelection.toLowerCase()
+	playerSelection = playerSelection.toLowerCase();
 
-	let result = null
+	let result = null;
 
 	if (playerSelection == "rock" && computerSelection == "Paper") {
-		result = "You Lose! Paper beats Rock"
+		result = "You Lose! Paper beats Rock";
 	}
 	else if (playerSelection == "paper" && computerSelection == "Scissors") {
-		result = "You Lose! Scissors beats Paper"
+		result = "You Lose! Scissors beats Paper";
 	}
 	else if (playerSelection == "scissors" && computerSelection == "Rock") {
-		result = "You Lose! Rock beats Scissors"
+		result = "You Lose! Rock beats Scissors";
 	}
 	else if (playerSelection == "paper" && computerSelection == "Rock") {
-		result = "You Win! Paper beats Rock"
+		result = "You Win! Paper beats Rock";
 	}
 	else if (playerSelection == "scissors" && computerSelection == "Paper") {
-		result = "You Win! Scissors beats Paper"
+		result = "You Win! Scissors beats Paper";
 	}
 	else if (playerSelection == "rock" && computerSelection == "Scissors") {
-		result = "You Win! Rock beats Scissors"
+		result = "You Win! Rock beats Scissors";
 	}
 	else if (playerSelection == computerSelection.toLowerCase()) {
-		result = "Tie"
+		result = "Tie";
 	}
 	else {
 		result = "Wrong input"
 	}
 
-	return result
+	return result;
 }
 
-
-function game() {
-	let playerPoint = 0
-	let computerPoint = 0
-
-	for (let i = 1; i <= 5; i++) {
-		let playerSelection = prompt()
-		let computerSelection = getComputerChoice()
-		let roundResult = playRound(playerSelection, computerSelection)
-		
-		console.log(roundResult)
-
-		if (roundResult.includes("Win")) {
-			playerPoint += 1
-		}
-		else if (roundResult.includes("Lose")) {
-			computerPoint += 1
-		}
-	}
-
-	if (playerPoint > computerPoint) {
-		console.log("Yow Won the game!")
-	}
-	else if (playerPoint < computerPoint) {
-		console.log("Computer Won the game!")
-	}
-	else {
-		console.log("Game is Tie")
-	}
-}
-
-game()
+btns = document.querySelectorAll("button");
+btns.forEach(btn => {
+	btn.addEventListener('click', () => {
+		console.log(playRound(btn.textContent, getComputerChoice()));
+	});
+});
